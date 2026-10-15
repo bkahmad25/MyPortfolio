@@ -1,0 +1,6 @@
+# robots.txt for Bilal Ahmed Portfolio
+User-agent: *
+Allow: /
+
+# Sitemap URL
+Sitemap: https://bkahmad25.github.io/MyPortfolio/sitemap.xml
