@@ -3,6 +3,15 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+<!-- Google tag (gtag.js) - Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GSWPV04TSQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GSWPV04TSQ');
+</script>
 <title>Bilal Ahmed — Senior .NET & FinTech Software Engineer | Karachi, Pakistan</title>
 <meta name="description" content="Official portfolio of Bilal Ahmed, a Senior .NET & FinTech Software Engineer based in Karachi, Pakistan. 3+ years experience building Brokerage Back-Office, FIFO AvgPrice & CGT Tax engines, Live Market Watch, and REST APIs with ASP.NET Core & SQL Server."/>
 <meta name="keywords" content="Bilal Ahmed, Bilal Ahmed .NET Developer, Bilal Ahmed Software Engineer, Senior .NET Developer Karachi, FinTech Developer Pakistan, C# Developer, ASP.NET Core, SQL Server, FIFO AvgPrice, CGT Capital Gain Tax, Brokerage Back Office, Live Market Watch, bkahmad25"/>
@@ -3046,6 +3055,7 @@ function showToast(msg) {
 function copyContact(text, successMsg) {
   navigator.clipboard.writeText(text).then(() => {
     showToast(successMsg || 'Copied to clipboard!');
+    if (window.gtag) gtag('event', 'copy_contact', { contact_value: text });
   }).catch(() => {
     showToast('Value: ' + text);
   });
@@ -3053,6 +3063,7 @@ function copyContact(text, successMsg) {
 
 function openResumePrompt() {
   showToast('Opening Resume & Contact details...');
+  if (window.gtag) gtag('event', 'view_resume', { event_category: 'engagement' });
   window.location.href = 'mailto:bkahmed33334@gmail.com?subject=Requesting%20Bilal%20Ahmed%20Resume&body=Hi%20Bilal,%20please%20share%20your%20latest%20Senior%20.NET%20&%20FinTech%20Resume/CV.';
 }
 
@@ -3068,6 +3079,8 @@ function handleFormSubmit(e) {
     showToast('Please fill out all required fields.');
     return;
   }
+
+  if (window.gtag) gtag('event', 'generate_lead', { sender_name: name, subject_line: subject });
 
   const mailtoUrl = `mailto:bkahmed33334@gmail.com?subject=${encodeURIComponent(subject + ' - via Portfolio')}&body=${encodeURIComponent(
     `From: ${name} (${email})\n\nMessage:\n${message}\n\nSent from Portfolio Contact Form`
