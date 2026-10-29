@@ -3,255 +3,506 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bilal Ahmed - ASP.NET Developer Resume</title>
+<title>Bilal Ahmed - Senior .NET & FinTech Developer Resume</title>
 <style>
-  @page {
-    size: A4;
-    margin: 12mm 15mm 12mm 15mm;
-  }
-  * {
+  /* ── GLOBAL RESET & FONT ── */
+  *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
   body {
-    font-family: 'Calibri', 'Arial', 'Helvetica Neue', sans-serif;
-    color: #1a1a1a;
-    background: #ffffff;
+    font-family: 'Calibri', 'Arial', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #111827;
+    background: #f1f5f9;
     line-height: 1.35;
-    font-size: 10.5pt;
+    font-size: 9.8pt;
+    -webkit-font-smoothing: antialiased;
   }
-  .resume-container {
-    max-width: 800px;
-    margin: 0 auto;
+
+  /* ── INTERACTIVE TOP BAR (NO-PRINT) ── */
+  .no-print {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .action-bar {
+    max-width: 900px;
+    margin: 16px auto;
+    background: #0f172a;
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+  }
+  .bar-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .bar-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f8fafc;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .bar-badge {
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .bar-subtitle {
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .bar-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .view-toggle {
+    display: inline-flex;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    padding: 2px;
+  }
+  .toggle-btn {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+  .toggle-btn.active {
+    background: #2563eb;
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.4);
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 6px;
+    font-size: 12.5px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+  }
+  .btn-print {
+    background: #10b981;
+    color: #ffffff;
+  }
+  .btn-print:hover {
+    background: #059669;
+  }
+  .btn-download {
+    background: #3b82f6;
+    color: #ffffff;
+  }
+  .btn-download:hover {
+    background: #2563eb;
+  }
+  .btn-word {
+    background: #1d4ed8;
+    color: #ffffff;
+  }
+  .btn-word:hover {
+    background: #1e40af;
+  }
+
+  /* ── RESUME PAPER CONTAINER ── */
+  .resume-paper {
     background: #ffffff;
-    padding: 10px 0;
+    width: 210mm;
+    margin: 0 auto 30px auto;
+    padding: 12mm 15mm;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    position: relative;
+    border-radius: 4px;
   }
-  /* HEADER */
+
+  /* ── HEADER ── */
   header {
     text-align: center;
     border-bottom: 2px solid #1e3a8a;
-    padding-bottom: 8px;
-    margin-bottom: 12px;
+    padding-bottom: 7px;
+    margin-bottom: 9px;
   }
   h1 {
-    font-size: 20pt;
+    font-size: 21pt;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
     color: #0f172a;
     text-transform: uppercase;
     margin-bottom: 2px;
+    line-height: 1.1;
   }
   .subtitle {
-    font-size: 12pt;
-    font-weight: 600;
+    font-size: 11pt;
+    font-weight: 700;
     color: #1e3a8a;
-    margin-bottom: 6px;
-    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+    letter-spacing: 0.3px;
   }
-  .contact-info {
-    font-size: 9.5pt;
+  .contact-line {
+    font-size: 9pt;
     color: #475569;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 8px;
   }
-  .contact-info a {
+  .contact-line a {
     color: #1e3a8a;
     text-decoration: none;
+    font-weight: 600;
   }
-  .contact-info a:hover {
+  .contact-line a:hover {
     text-decoration: underline;
   }
-  .contact-separator {
+  .sep {
     color: #94a3b8;
+    font-size: 8.5pt;
   }
 
-  /* SECTION STYLING */
+  /* ── SECTION TITLE ── */
   section {
-    margin-bottom: 11px;
+    margin-bottom: 8.5px;
   }
   .section-title {
-    font-size: 11pt;
+    font-size: 10.5pt;
     font-weight: 700;
     color: #0f172a;
     text-transform: uppercase;
     border-bottom: 1.5px solid #cbd5e1;
     padding-bottom: 2px;
-    margin-bottom: 6px;
-    letter-spacing: 0.8px;
+    margin-bottom: 5px;
+    letter-spacing: 0.6px;
     display: flex;
     align-items: center;
   }
   .section-title::before {
     content: "";
     display: inline-block;
-    width: 6px;
-    height: 12px;
+    width: 5px;
+    height: 11px;
     background: #1e3a8a;
     margin-right: 6px;
     border-radius: 1px;
   }
 
-  /* SUMMARY */
+  /* ── SUMMARY ── */
   .summary-text {
-    font-size: 9.5pt;
-    color: #334155;
+    font-size: 9.1pt;
+    color: #1e293b;
     text-align: justify;
-    line-height: 1.38;
+    line-height: 1.34;
+  }
+  .summary-text strong {
+    color: #0f172a;
+    font-weight: 700;
   }
 
-  /* SKILLS TABLE / LIST */
-  .skills-grid {
-    display: table;
-    width: 100%;
-    font-size: 9.5pt;
+  /* ── SKILLS ── */
+  .skills-list {
+    font-size: 9pt;
+    line-height: 1.35;
   }
   .skill-row {
-    display: table-row;
+    margin-bottom: 2.5px;
   }
-  .skill-cat {
-    display: table-cell;
+  .skill-label {
     font-weight: 700;
-    color: #1e293b;
-    width: 22%;
-    padding: 1.5px 0;
-    vertical-align: top;
+    color: #0f172a;
+    display: inline;
   }
-  .skill-items {
-    display: table-cell;
+  .skill-vals {
     color: #334155;
-    padding: 1.5px 0;
+    display: inline;
   }
 
-  /* EXPERIENCE & PROJECTS */
+  /* ── ITEMS (JOBS & PROJECTS) ── */
   .item {
-    margin-bottom: 8px;
+    margin-bottom: 7px;
   }
   .item:last-child {
     margin-bottom: 0;
   }
-  .item-header {
+  .item-head {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     margin-bottom: 2px;
   }
-  .item-title {
-    font-size: 10pt;
+  .item-title-grp {
+    font-size: 9.6pt;
     font-weight: 700;
     color: #0f172a;
   }
   .item-company {
-    font-weight: 600;
     color: #1e3a8a;
+    font-weight: 700;
   }
-  .item-date {
-    font-size: 9pt;
+  .item-meta {
+    font-size: 8.8pt;
     font-weight: 600;
     color: #475569;
     white-space: nowrap;
   }
-  .item-sub {
-    font-size: 9pt;
-    font-style: italic;
-    color: #64748b;
-    margin-bottom: 3px;
-  }
-  .tech-stack-tag {
-    font-size: 8.5pt;
-    color: #0f172a;
-    font-weight: 600;
-    margin-bottom: 3px;
-  }
-  .tech-stack-tag span {
-    font-weight: normal;
+  .item-tags {
+    font-size: 8.4pt;
     color: #475569;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .item-tags span {
+    color: #1e3a8a;
+    font-weight: 700;
   }
 
-  /* BULLETS */
+  /* ── BULLETS ── */
   ul {
     margin: 0;
-    padding-left: 17px;
+    padding-left: 15px;
   }
   li {
-    font-size: 9.2pt;
-    color: #334155;
-    margin-bottom: 2.5px;
+    font-size: 8.9pt;
+    color: #1e293b;
+    margin-bottom: 2px;
     line-height: 1.32;
     text-align: justify;
   }
   li strong {
     color: #0f172a;
+    font-weight: 700;
   }
 
-  /* PRINT ADJUSTMENTS */
+  /* ── EDUCATION ── */
+  .edu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 9.1pt;
+    margin-bottom: 2.5px;
+  }
+  .edu-degree {
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .edu-school {
+    color: #1e3a8a;
+    font-weight: 600;
+  }
+  .edu-year {
+    font-size: 8.6pt;
+    font-weight: 600;
+    color: #475569;
+  }
+
+  /* ── PAGE BREAK UTILITY ── */
+  .page-break {
+    display: none;
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     MODE 1: STRICT 1-PAGE ATS (Ultra Compact & Perfectly Budgeted)
+     ────────────────────────────────────────────────────────── */
+  body.mode-1page .resume-paper {
+    padding: 9mm 13mm;
+    min-height: auto;
+  }
+  body.mode-1page header {
+    padding-bottom: 4px;
+    margin-bottom: 6px;
+  }
+  body.mode-1page h1 {
+    font-size: 19pt;
+    margin-bottom: 1px;
+  }
+  body.mode-1page .subtitle {
+    font-size: 10.2pt;
+    margin-bottom: 3px;
+  }
+  body.mode-1page .contact-line {
+    font-size: 8.4pt;
+    gap: 6px;
+  }
+  body.mode-1page section {
+    margin-bottom: 6px;
+  }
+  body.mode-1page .section-title {
+    font-size: 9.8pt;
+    padding-bottom: 1px;
+    margin-bottom: 3.5px;
+  }
+  body.mode-1page .summary-text {
+    font-size: 8.5pt;
+    line-height: 1.28;
+  }
+  body.mode-1page .skills-list {
+    font-size: 8.4pt;
+    line-height: 1.28;
+  }
+  body.mode-1page .skill-row {
+    margin-bottom: 1.5px;
+  }
+  body.mode-1page .item {
+    margin-bottom: 4.5px;
+  }
+  body.mode-1page .item-title-grp {
+    font-size: 9pt;
+  }
+  body.mode-1page .item-meta {
+    font-size: 8.2pt;
+  }
+  body.mode-1page .item-tags {
+    font-size: 8pt;
+    margin-bottom: 1px;
+  }
+  body.mode-1page li {
+    font-size: 8.3pt;
+    line-height: 1.26;
+    margin-bottom: 1.5px;
+  }
+  body.mode-1page .edu-item {
+    font-size: 8.4pt;
+    margin-bottom: 1.5px;
+  }
+  /* In 1-page mode, show top high-impact bullets only */
+  body.mode-1page .extra-bullet-2p {
+    display: none !important;
+  }
+  body.mode-1page .extra-project-2p {
+    display: none !important;
+  }
+  body.mode-1page .extra-section-2p {
+    display: none !important;
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     MODE 2: BALANCED 2-PAGE FINTECH (Expanded & Full)
+     ────────────────────────────────────────────────────────── */
+  body.mode-2page .resume-paper {
+    padding: 12mm 15mm;
+  }
+  body.mode-2page .page-break {
+    display: block;
+    height: 1px;
+    border: none;
+    page-break-before: always;
+    break-before: page;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  body.mode-2page .item {
+    margin-bottom: 8px;
+  }
+  body.mode-2page li {
+    font-size: 9pt;
+    line-height: 1.34;
+    margin-bottom: 2.5px;
+  }
+
+  /* ── PRINT RULES ── */
+  @page {
+    size: A4;
+    margin: 8mm 12mm;
+  }
   @media print {
     body {
-      print-color-adjust: exact;
-      -webkit-print-color-adjust: exact;
+      background: #ffffff !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
     }
     .no-print {
       display: none !important;
     }
-    .resume-container {
-      padding: 0;
+    .resume-paper {
+      width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
     }
-  }
-
-  /* ACTION BAR (FOR BROWSER VIEW) */
-  .action-bar {
-    background: #0f172a;
-    color: white;
-    padding: 12px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    font-family: sans-serif;
-  }
-  .btn-print {
-    background: #2563eb;
-    color: white;
-    border: none;
-    padding: 8px 18px;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background 0.2s;
-  }
-  .btn-print:hover {
-    background: #1d4ed8;
+    body.mode-1page .page-break {
+      display: none !important;
+    }
+    body.mode-2page .page-break {
+      display: block !important;
+      page-break-before: always !important;
+      break-before: page !important;
+      height: 0 !important;
+      margin: 0 !important;
+      border: none !important;
+    }
   }
 </style>
 </head>
-<body>
+<body class="mode-1page">
 
-<div class="resume-container">
-  <!-- BROWSER PRINT BAR (HIDDEN IN PRINT) -->
-  <div class="action-bar no-print">
-    <div>
-      <strong>Bilal Ahmed — ATS Optimized Resume</strong>
-      <span style="font-size: 12px; opacity: 0.8; margin-left: 10px;">(1-Page Standard / Strict ATS Compliant)</span>
+<!-- INTERACTIVE TOP CONTROL BAR (HIDDEN IN PRINT) -->
+<div class="action-bar no-print">
+  <div class="bar-left">
+    <div class="bar-title">
+      Bilal Ahmed — ATS Optimized Resume
+      <span class="bar-badge" id="currentModeLabel">Strict 1-Page ATS</span>
     </div>
-    <button class="btn-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+    <div class="bar-subtitle">Tailored for Senior .NET, ASP.NET Core & FinTech Engineering roles</div>
   </div>
+  <div class="bar-actions">
+    <!-- View Switcher -->
+    <div class="view-toggle">
+      <button class="toggle-btn active" id="btnMode1" onclick="switchMode('1page')">📄 1-Page ATS</button>
+      <button class="toggle-btn" id="btnMode2" onclick="switchMode('2page')">📑 2-Page FinTech</button>
+    </div>
+    <!-- Direct Downloads -->
+    <a href="Bilal_Ahmed_Resume_1Page.pdf" class="btn btn-download" download title="Download 1-Page PDF">⬇️ PDF (1-Page)</a>
+    <a href="Bilal_Ahmed_Resume_2Page.pdf" class="btn btn-download" download title="Download 2-Page PDF">⬇️ PDF (2-Page)</a>
+    <a href="Bilal_Ahmed_Resume.docx" class="btn btn-word" download title="Download Microsoft Word .DOCX">⬇️ Word (.docx)</a>
+    <!-- Print Button -->
+    <button class="btn btn-print" onclick="window.print()">🖨️ Print / Save PDF</button>
+  </div>
+</div>
+
+<!-- RESUME PAPER CONTAINER -->
+<div class="resume-paper" id="resumePaper">
 
   <!-- HEADER -->
   <header>
     <h1>BILAL AHMED</h1>
-    <div class="subtitle">ASP.NET Core Developer | Full-Stack .NET Engineer</div>
-    <div class="contact-info">
+    <div class="subtitle">Senior .NET Developer | ASP.NET Core & FinTech Engineer</div>
+    <div class="contact-line">
       <span>📍 Karachi, Pakistan</span>
-      <span class="contact-separator">•</span>
+      <span class="sep">•</span>
       <span>📞 +92 333 3442076</span>
-      <span class="contact-separator">•</span>
+      <span class="sep">•</span>
       <span>✉️ <a href="mailto:bilalxdeveloper99@gmail.com">bilalxdeveloper99@gmail.com</a></span>
-      <span class="contact-separator">•</span>
+      <span class="sep">•</span>
       <span>🔗 <a href="https://linkedin.com/in/bilal-ahmed-2572a4244" target="_blank">linkedin.com/in/bilal-ahmed-2572a4244</a></span>
+      <span class="sep">•</span>
+      <span>🌐 <a href="https://bkahmad25.github.io/MyPortfolio" target="_blank">bkahmad25.github.io/MyPortfolio</a></span>
+      <span class="sep">•</span>
+      <span>💻 <a href="https://github.com/bkahmad25" target="_blank">github.com/bkahmad25</a></span>
     </div>
   </header>
 
@@ -259,37 +510,33 @@
   <section>
     <div class="section-title">Professional Summary</div>
     <p class="summary-text">
-      Results-driven <strong>ASP.NET Core Developer</strong> with <strong>3+ years of experience</strong> engineering, modernizing, and maintaining mission-critical financial, ERP, and enterprise software systems. Proven expertise in building secure <strong>RESTful & SOAP APIs</strong>, optimizing high-volume <strong>SQL Server databases</strong> (stored procedures, indexing, execution plans), and integrating seamless <strong>Angular & React</strong> frontends. Demonstrated track record in resolving critical production bottlenecks, implementing financial transaction modules (EOD, CDC, Settlements), and contributing to <strong>Azure CI/CD</strong> cloud deployments. Adept in Clean Architecture, OOP, and agile SDLC workflows.
+      Results-driven <strong>Senior .NET Developer & FinTech Software Engineer</strong> with <strong>3+ years of experience</strong> engineering, modernizing, and scaling mission-critical brokerage back-office, ERP, and enterprise software systems. Proven expertise in building secure <strong>RESTful & SOAP APIs</strong>, optimizing high-volume <strong>SQL Server databases</strong> (stored procedures, indexing, execution plans), and integrating seamless <strong>Angular & React</strong> frontends. Demonstrated track record in delivering high-impact financial calculation engines (<strong>FIFO AvgPrice</strong>, <strong>FIFO CGT Tax calculation</strong>, EOD settlements, CDC/NCCPL reporting) and real-time market data feeds via <strong>SignalR</strong> with <strong>99.9% uptime</strong> on Azure cloud deployments.
     </p>
   </section>
 
   <!-- TECHNICAL SKILLS -->
   <section>
     <div class="section-title">Technical Skills</div>
-    <div class="skills-grid">
+    <div class="skills-list">
       <div class="skill-row">
-        <div class="skill-cat">Backend & Frameworks:</div>
-        <div class="skill-items">C#, ASP.NET Core (.NET 8/7/6), ASP.NET MVC, Web API, Web Forms, Entity Framework Core, LINQ, Dapper, Microservices</div>
+        <div class="skill-label">• Backend & Frameworks: </div>
+        <div class="skill-vals">C#, ASP.NET Core (.NET 8/7/6), ASP.NET MVC, Web API, Web Forms, Entity Framework Core, LINQ, Dapper, SignalR, Microservices</div>
       </div>
       <div class="skill-row">
-        <div class="skill-cat">Databases & Performance:</div>
-        <div class="skill-items">MS SQL Server, PostgreSQL, MySQL, Stored Procedures, Complex T-SQL, Query Tuning, Indexing, Execution Plans</div>
+        <div class="skill-label">• Database & Performance: </div>
+        <div class="skill-vals">MS SQL Server, PostgreSQL, MySQL, Stored Procedures, Complex T-SQL, Query Tuning, Indexing, Execution Plans, Triggers</div>
       </div>
       <div class="skill-row">
-        <div class="skill-cat">Frontend & Web Tech:</div>
-        <div class="skill-items">Angular, React.js, AngularJS, JavaScript (ES6+), HTML5, CSS3, Bootstrap, AJAX, JSON</div>
+        <div class="skill-label">• Frontend & Web: </div>
+        <div class="skill-vals">Angular, React.js, JavaScript (ES6+), TypeScript, HTML5, CSS3, Bootstrap 5, AJAX, JSON</div>
       </div>
       <div class="skill-row">
-        <div class="skill-cat">APIs & Integrations:</div>
-        <div class="skill-items">RESTful Web APIs, SOAP Web Services, JWT Authentication, Swagger/OpenAPI, Postman, Third-Party Financial Gateways</div>
+        <div class="skill-label">• Architecture & APIs: </div>
+        <div class="skill-vals">RESTful Web APIs, SOAP Services, JWT Authentication, Clean Architecture, Repository Pattern, SOLID Principles, DI</div>
       </div>
       <div class="skill-row">
-        <div class="skill-cat">Cloud, Tools & DevOps:</div>
-        <div class="skill-items">Microsoft Azure (App Services), Git, GitHub, CI/CD Pipelines, IIS Server, Crystal Reports, Visual Studio 2022, SSMS</div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-cat">Methodologies & Concepts:</div>
-        <div class="skill-items">Object-Oriented Programming (OOP), SOLID Principles, Repository Pattern, Dependency Injection (DI), SDLC, Agile/Scrum</div>
+        <div class="skill-label">• Cloud, Tools & DevOps: </div>
+        <div class="skill-vals">Microsoft Azure (App Services), Git, GitHub, IIS Server, CI/CD Pipelines, Visual Studio 2022, SSMS, Crystal Reports</div>
       </div>
     </div>
   </section>
@@ -300,135 +547,208 @@
 
     <!-- ROLE 1: Catalyst IT Solutions -->
     <div class="item">
-      <div class="item-header">
-        <div>
-          <span class="item-title">Associate Software Developer (.NET Developer)</span>
-          <span class="contact-separator"> | </span>
+      <div class="item-head">
+        <div class="item-title-grp">
+          Software Developer (.NET Developer)
+          <span class="sep"> | </span>
           <span class="item-company">Catalyst IT Solutions</span>
         </div>
-        <div class="item-date">Mar 2025 – Present | Karachi, PK</div>
+        <div class="item-meta">Mar 2025 – Present | Karachi, PK</div>
       </div>
       <ul>
-        <li>Architect and maintain enterprise-grade web applications using <strong>ASP.NET Core, ASP.NET MVC, and C#</strong>, ensuring <strong>99.9% uptime</strong> for high-availability production environments.</li>
-        <li>Engineered and optimized <strong>SQL Server stored procedures, indexing structures, and complex queries</strong>, slashing query response times by <strong>35%</strong> on high-concurrency databases.</li>
-        <li>Designed robust <strong>RESTful APIs</strong> and integrated dynamic <strong>Angular & React.js</strong> interfaces, streamlining data exchange and enhancing end-user transaction speed.</li>
-        <li>Rapidly diagnosed and resolved tier-1 production bugs across financial backoffice modules, maintaining near-zero unplanned system downtime.</li>
-        <li>Collaborated with cross-functional agile teams to deploy microservices components to <strong>Microsoft Azure</strong> via automated <strong>CI/CD pipelines</strong>.</li>
+        <li>Architect and maintain enterprise-grade web applications using <strong>ASP.NET Core 8, ASP.NET MVC, and C#</strong>, ensuring <strong>99.9% uptime</strong> for high-availability production environments.</li>
+        <li>Refactored and optimized <strong>SQL Server stored procedures, indexing structures, and execution plans</strong>, slashing query response times by <strong>35%</strong> on high-concurrency brokerage databases.</li>
+        <li>Designed low-latency <strong>real-time market watch data feeds using ASP.NET Core SignalR</strong>, pushing sub-second live price updates to concurrent brokerage trader terminals.</li>
+        <li>Engineered bidirectional <strong>REST & SOAP APIs with JWT auth</strong> for clearing houses (CDC / NCCPL) and commercial banking gateways.</li>
+        <li class="extra-bullet-2p">Collaborated with agile engineering teams to automate cloud deployments to <strong>Microsoft Azure via CI/CD pipelines</strong>.</li>
       </ul>
     </div>
 
     <!-- ROLE 2: Out2Sol IT Services -->
     <div class="item">
-      <div class="item-header">
-        <div>
-          <span class="item-title">Associate Software Developer</span>
-          <span class="contact-separator"> | </span>
+      <div class="item-head">
+        <div class="item-title-grp">
+          Associate Software Developer
+          <span class="sep"> | </span>
           <span class="item-company">Out2Sol IT Services & Consulting</span>
         </div>
-        <div class="item-date">Oct 2023 – Feb 2025 | Karachi, PK</div>
+        <div class="item-meta">Oct 2023 – Feb 2025 | Karachi, PK</div>
       </div>
       <ul>
         <li>Developed scalable line-of-business web applications using <strong>ASP.NET MVC, C#, LINQ, and SQL Server</strong> across diverse multi-tenant enterprise clients.</li>
-        <li>Authored over <strong>50+ optimized stored procedures and views</strong> to generate business-critical reports and power analytical dashboards.</li>
-        <li>Identified application bottlenecks, refactored legacy database queries, and implemented unit tests, improving software reliability and data integrity.</li>
-        <li>Partnered closely with senior architects, QA engineers, and clients to ship custom enterprise modules within strict sprint deadlines.</li>
+        <li>Authored <strong>50+ optimized stored procedures and views</strong> to generate business-critical reports, audit trails, and analytical dashboards.</li>
+        <li>Identified application bottlenecks, resolved database deadlocks, and refactored queries, improving transaction throughput by <strong>25%</strong>.</li>
+        <li>Integrated dynamic <strong>Angular and Bootstrap user interfaces</strong>; configured automated <strong>Crystal Reports</strong> for statutory audits.</li>
       </ul>
     </div>
 
     <!-- ROLE 3: Alkaram Textile Mills -->
     <div class="item">
-      <div class="item-header">
-        <div>
-          <span class="item-title">ERP Operations Specialist (Data Systems)</span>
-          <span class="contact-separator"> | </span>
+      <div class="item-head">
+        <div class="item-title-grp">
+          ERP Operations Specialist (Data Systems)
+          <span class="sep"> | </span>
           <span class="item-company">Alkaram Textile Mills Pvt Ltd</span>
         </div>
-        <div class="item-date">Apr 2022 – Aug 2023 | Karachi, PK</div>
+        <div class="item-meta">Apr 2022 – Aug 2023 | Karachi, PK</div>
       </div>
       <ul>
-        <li>Administered ERP data reconciliation and automated data migration pipelines from Excel to central databases, maintaining <strong>99.8% record accuracy</strong>.</li>
-        <li>Audited inventory tracking workflows and managed chemical store modules, providing foundational insight into ERP operational workflows.</li>
+        <li>Administered ERP data reconciliation and automated data migration pipelines from Excel to central relational databases with <strong>99.8% record accuracy</strong>.</li>
+        <li class="extra-bullet-2p">Audited inventory tracking workflows and managed chemical store modules, collaborating on relational schema designs.</li>
       </ul>
     </div>
   </section>
 
-  <!-- KEY ENTERPRISE PROJECTS -->
+  <!-- PAGE BREAK (APPLIED IN 2-PAGE MODE) -->
+  <hr class="page-break">
+
+  <!-- KEY ENTERPRISE & FINTECH PROJECTS -->
   <section>
-    <div class="section-title">Key Enterprise Projects</div>
+    <div class="section-title">Key Enterprise & FinTech Projects</div>
 
-    <!-- Project 1 -->
+    <!-- Project 1: GEM Backoffice -->
     <div class="item">
-      <div class="item-header">
-        <span class="item-title">Financial Backoffice Management System (GEM)</span>
-        <div class="item-date">ASP.NET (Core & MVC) | SQL Server | REST & SOAP APIs</div>
+      <div class="item-head">
+        <div class="item-title-grp">
+          Financial Backoffice Management System (GEM)
+        </div>
+        <div class="item-meta">ASP.NET Core & MVC | SQL Server | REST & SOAP</div>
       </div>
       <ul>
-        <li>Maintained and enhanced core brokerage modules: <strong>Order Management, Portfolio Management, Risk Mitigation, EOD Processing, Fund Settlements, and CDC Reporting</strong>.</li>
-        <li>Implemented bidirectional <strong>REST & SOAP APIs</strong> for seamless integrations with national clearing houses and external financial payment gateways.</li>
-        <li>Engineered <strong>Crystal Reports</strong> automating generation of daily settlement, trading, and statutory audit compliance statements.</li>
+        <li>Maintained and enhanced core brokerage modules: <strong>Order Management, Risk Assessment, End-of-Day (EOD) Processing, Fund Settlements, and CDC / NCCPL Clearing</strong>.</li>
+        <li>Automated daily settlement, trade confirmation, and statutory audit compliance reports via <strong>Crystal Reports</strong>, saving 15+ hours weekly.</li>
       </ul>
     </div>
 
-    <!-- Project 2 -->
+    <!-- Project 2: FIFO AvgPrice & CGT Tax Calculation -->
     <div class="item">
-      <div class="item-header">
-        <span class="item-title">Crescent Steel ERP Management System</span>
-        <div class="item-date">ASP.NET Core & MVC | C# | SQL Server | REST API</div>
+      <div class="item-head">
+        <div class="item-title-grp">
+          FIFO AvgPrice & Capital Gain Tax (CGT) Engine
+        </div>
+        <div class="item-meta">C# | ASP.NET Core | SQL Server Stored Procedures</div>
       </div>
       <ul>
-        <li>Developed the <strong>Split Share Module</strong> to automate stock split calculations, instantaneously updating portfolio balances and shareholder ledger records.</li>
-        <li>Engineered secure REST endpoints and optimized database transactions, handling complex corporate action events with zero data discrepancies.</li>
+        <li>Engineered automated <strong>First-In-First-Out (FIFO)</strong> calculation algorithm to dynamically compute real-time average buy prices across split executions.</li>
+        <li>Implemented automated <strong>Capital Gains Tax (CGT)</strong> tax calculations adhering to stock exchange statutory regulations with 100% precision.</li>
       </ul>
     </div>
 
-    <!-- Project 3 -->
+    <!-- Project 3: Real-Time Market Watch -->
     <div class="item">
-      <div class="item-header">
-        <span class="item-title">Digital Account Opening & Unit Trust (Insurance) Modules</span>
-        <div class="item-date">ASP.NET Core | Web API | SQL Server | Web Forms</div>
+      <div class="item-head">
+        <div class="item-title-grp">
+          Real-Time Market Watch System
+        </div>
+        <div class="item-meta">ASP.NET Core SignalR | WebSockets | JavaScript</div>
+      </div>
+      <ul>
+        <li>Built high-throughput real-time streaming engine pushing tick-by-tick stock quotes, volume changes, and price alerts with sub-second latency.</li>
+      </ul>
+    </div>
+
+    <!-- Project 4: Crescent Steel ERP -->
+    <div class="item extra-project-2p">
+      <div class="item-head">
+        <div class="item-title-grp">
+          Crescent Steel ERP Management System
+        </div>
+        <div class="item-meta">ASP.NET Core & MVC | C# | SQL Server | REST API</div>
+      </div>
+      <ul>
+        <li>Developed corporate <strong>Split Share Module</strong> automating stock split actions, instantaneously recalculating share quantities and ledger balances.</li>
+      </ul>
+    </div>
+
+    <!-- Project 5: Digital Account Opening & Insurance -->
+    <div class="item extra-project-2p">
+      <div class="item-head">
+        <div class="item-title-grp">
+          Digital Account Opening & Insurance Portal
+        </div>
+        <div class="item-meta">ASP.NET Core | Web API | SQL Server | Angular</div>
       </div>
       <ul>
         <li>Automated end-to-end customer KYC and digital onboarding workflow, <strong>reducing account opening turnaround time by 40%</strong>.</li>
-        <li>Engineered policy lifecycle system covering policy issuance, automated debit/credit voucher generation, and employee payroll management.</li>
+        <li>Engineered policy lifecycle system covering policy issuance, automated debit/credit voucher generation, and sales commission workflows.</li>
       </ul>
     </div>
   </section>
 
-  <!-- EDUCATION & CERTIFICATIONS -->
+  <!-- EDUCATION & CREDENTIALS -->
   <section>
     <div class="section-title">Education & Credentials</div>
-    <div class="item">
-      <div class="item-header">
-        <div>
-          <span class="item-title">Bachelor of Science in Computer Science (BSCS)</span>
-          <span class="contact-separator"> — </span>
-          <span class="item-company">Virtual University of Pakistan</span>
-        </div>
-        <div class="item-date">2026 – In Progress</div>
+    <div class="edu-item">
+      <div>
+        <span class="edu-degree">Bachelor of Science in Computer Science (BSCS)</span>
+        <span class="sep"> — </span>
+        <span class="edu-school">Virtual University of Pakistan</span>
       </div>
+      <div class="edu-year">2026 – In Progress</div>
     </div>
-    <div class="item">
-      <div class="item-header">
-        <div>
-          <span class="item-title">Higher Diploma in Software Engineering (H.D.S.E)</span>
-          <span class="contact-separator"> — </span>
-          <span class="item-company">Aptech Computer Education</span>
-        </div>
-        <div class="item-date">2021 – 2024 (Grade A)</div>
+    <div class="edu-item">
+      <div>
+        <span class="edu-degree">Higher Diploma in Software Engineering (HDSE)</span>
+        <span class="sep"> — </span>
+        <span class="edu-school">Aptech Computer Education</span>
       </div>
+      <div class="edu-year">2021 – 2024 (Grade A)</div>
     </div>
-    <div class="item">
-      <div class="item-header">
-        <div>
-          <span class="item-title">Intermediate in Computer Science</span>
-          <span class="contact-separator"> — </span>
-          <span class="item-company">Modern Sciences College, Karachi</span>
-        </div>
-        <div class="item-date">2019 – 2021 (Grade A)</div>
+    <div class="edu-item">
+      <div>
+        <span class="edu-degree">Intermediate in Computer Science (ICS)</span>
+        <span class="sep"> — </span>
+        <span class="edu-school">Modern Sciences College, Karachi</span>
+      </div>
+      <div class="edu-year">2019 – 2021 (Grade A)</div>
+    </div>
+  </section>
+
+  <!-- DOMAIN EXPERTISE HIGHLIGHTS (DISPLAYED IN 2-PAGE MODE) -->
+  <section class="extra-section-2p">
+    <div class="section-title">Core Competencies & Domain Strengths</div>
+    <div class="skills-list">
+      <div class="skill-row">
+        <div class="skill-label">• FinTech Domain: </div>
+        <div class="skill-vals">Stock Brokerage Operations, Order Lifecycle, Settlement Processing, CDC / NCCPL Clearing, FIFO Average Pricing, Capital Gains Tax (CGT).</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label">• Engineering Practices: </div>
+        <div class="skill-vals">Clean Architecture, CQRS, Repository Pattern, Dependency Injection, Database Query Profiling, Automated CI/CD, Agile/Scrum.</div>
       </div>
     </div>
   </section>
+
 </div>
+
+<script>
+  function switchMode(mode) {
+    const body = document.body;
+    const btn1 = document.getElementById('btnMode1');
+    const btn2 = document.getElementById('btnMode2');
+    const label = document.getElementById('currentModeLabel');
+
+    if (mode === '2page') {
+      body.classList.remove('mode-1page');
+      body.classList.add('mode-2page');
+      btn1.classList.remove('active');
+      btn2.classList.add('active');
+      label.textContent = 'Balanced 2-Page FinTech';
+    } else {
+      body.classList.remove('mode-2page');
+      body.classList.add('mode-1page');
+      btn2.classList.remove('active');
+      btn1.classList.add('active');
+      label.textContent = 'Strict 1-Page ATS';
+    }
+  }
+
+  // Auto-detect URL parameter if mode specified (e.g. ?mode=2page)
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('mode') === '2page') {
+    switchMode('2page');
+  }
+</script>
 
 </body>
 </html>

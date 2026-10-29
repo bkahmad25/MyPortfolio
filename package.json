@@ -1,0 +1,28 @@
+{
+  "name": "myportfolio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "docx": "^9.15.0",
+    "pako": "^1.0.11",
+    "pdf-lib": "^1.17.1",
+    "puppeteer-core": "^25.16.0",
+    "tslib": "^1.14.1"
+  },
+  "scripts": {
+    "build:resume": "node generate_docx.js && node render_resumes.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://bkahmad25@github.com/bkahmad25/MyPortfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bkahmad25/MyPortfolio/issues"
+  },
+  "homepage": "https://github.com/bkahmad25/MyPortfolio#readme",
+  "description": ""
+}
